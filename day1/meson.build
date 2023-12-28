@@ -1,4 +1,4 @@
-project('aoc23-d1')
+project('aoc23-d1', 'cpp')
 
 add_project_arguments('-std=c++2b', language : 'cpp')
 src = [
