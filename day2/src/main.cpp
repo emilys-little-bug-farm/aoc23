@@ -28,11 +28,22 @@ int main()
            
             const auto[game_id, plays] = process_game_string(line);
 
-            // only 12 red cubes, 13 green cubes, and 14 blue cubes
-            if(plays.red <= 12 && plays.green <= 13 && plays.blue <= 14)
+            bool game_possible = true;
+            for(const auto& play : plays)
             {
+                // only 12 red cubes, 13 green cubes, and 14 blue cubes
+                if(play.red > 12 || play.green > 13 || play.blue > 14)
+                {
+                   game_possible = false;
+                }
+            }
+
+            if(game_possible)
+            {
+                std::cout << "id " << game_id << '\n';
                 total += game_id;
             }
+
         }
 
         cout << "Total value: " << total << '\n';

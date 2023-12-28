@@ -3,7 +3,10 @@
 #include <string>
 #include <list>
 
-
+/**
+ * @brief describes the combination of cubes thrown in a play
+ * 
+ */
 struct Cubes
 {
     uint16_t green;
@@ -11,5 +14,11 @@ struct Cubes
     uint16_t blue;
 };
 
-std::pair<uint16_t, Cubes> process_game_string(const std::string&);
+/**
+ * @brief processes the string of a single game
+ * 
+ * @param line 
+ * @return std::pair<uint16_t, std::list<Cubes>> 
+ */
+std::pair<uint16_t, std::list<Cubes>> process_game_string(const std::string&);
 
