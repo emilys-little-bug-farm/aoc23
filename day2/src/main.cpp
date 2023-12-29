@@ -28,22 +28,16 @@ int main()
            
             const auto[game_id, plays] = process_game_string(line);
 
-            bool game_possible = true;
+            Cubes higest_values {0, 0 ,0};
             for(const auto& play : plays)
             {
-                // only 12 red cubes, 13 green cubes, and 14 blue cubes
-                if(play.red > 12 || play.green > 13 || play.blue > 14)
-                {
-                   game_possible = false;
-                }
+                if(play.red > higest_values.red) { higest_values.red = play.red; }
+                if(play.green > higest_values.green) { higest_values.green = play.green; }
+                if(play.blue > higest_values.blue) { higest_values.blue = play.blue; }
             }
 
-            if(game_possible)
-            {
-                std::cout << "id " << game_id << '\n';
-                total += game_id;
-            }
-
+            total += higest_values.blue * higest_values.red * higest_values.green;
+           
         }
 
         cout << "Total value: " << total << '\n';
